@@ -1,0 +1,113 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.breadcrumb a:hover { color: var(--color-primary); }
+
+.pageHeader { margin-bottom: var(--space-8); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-olive);
+  margin-bottom: var(--space-2);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+.pageSub {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.recipeCount {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.empty {
+  padding: var(--space-24) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.emptySub {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.emptyLink {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  margin-top: var(--space-2);
+}
+
+.emptyLink:hover { text-decoration: underline; }
+
+.footer {
+  background: var(--color-footer);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(245,237,216,0.45);
+  margin-top: var(--space-16);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footerLinks a { color: rgba(245,237,216,0.45); transition: color 0.15s; }
+.footerLinks a:hover { color: rgba(245,237,216,0.8); }
+.footerCopy { font-size: 0.78rem; opacity: 0.6; }
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-6) var(--space-4); }
+  .grid { grid-template-columns: 1fr; }
+}

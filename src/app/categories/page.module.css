@@ -1,0 +1,125 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-8);
+}
+
+.pageHeader { margin-bottom: var(--space-10); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-olive);
+  margin-bottom: var(--space-2);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+.pageSub {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.cardImage {
+  height: 140px;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardLetter {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  opacity: 0.2;
+}
+
+.cardBody {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.cardDesc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.cardLink {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  font-style: italic;
+  margin-top: var(--space-1);
+}
+
+.footer {
+  background: var(--color-footer);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(245,237,216,0.45);
+  margin-top: var(--space-16);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footerLinks a {
+  color: rgba(245,237,216,0.45);
+  transition: color 0.15s;
+}
+
+.footerLinks a:hover { color: rgba(245,237,216,0.8); }
+.footerCopy { font-size: 0.78rem; opacity: 0.6; }
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-6) var(--space-4); }
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,396 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.breadcrumb a:hover { color: var(--color-primary); }
+
+/* ── Header ──────────────────────────────────────────────── */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.headerMeta {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.categoryTag {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.newBadge {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--color-secondary);
+  color: #F5EDD8;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.sourceBadge {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  padding: 3px 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  line-height: 1.15;
+}
+
+.titleKannada {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.statValue {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.statDivider {
+  width: 0.5px;
+  height: 28px;
+  background: var(--color-border);
+}
+
+.spice {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  opacity: 0.3;
+}
+
+.dotActive {
+  background: var(--color-primary);
+  opacity: 1;
+}
+
+/* ── Tags ────────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border: 0.5px solid var(--color-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* ── Hero image ──────────────────────────────────────────── */
+.heroImage {
+  position: relative;
+  height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-primary-light);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder span {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.3;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+.body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+
+/* ── Ingredients ─────────────────────────────────────────── */
+.ingredients {
+  position: sticky;
+  top: 80px;
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-1);
+}
+
+.servingNote {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  opacity: 0.7;
+}
+
+.ingredientList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 0.5px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.ingredient:last-child { border-bottom: none; }
+
+.ingName {
+  color: var(--color-text);
+  flex: 1;
+}
+
+.ingNote {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.ingQty {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ── Method ──────────────────────────────────────────────── */
+.method {}
+
+.stepList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+.step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  opacity: 0.25;
+  min-width: 36px;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stepInstruction {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.75;
+}
+
+.stepTip {
+  background: var(--color-primary-light);
+  border-left: 2px solid var(--color-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.tipLabel {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.stepTip p {
+  font-size: 0.92rem;
+  color: var(--color-primary-dark);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── Notes ───────────────────────────────────────────────── */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-12);
+}
+
+.noteBlock {}
+
+.noteTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+.noteText {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.footer {
+  background: var(--color-footer);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(245,237,216,0.45);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footerLinks a {
+  color: rgba(245,237,216,0.45);
+  transition: color 0.15s;
+}
+
+.footerLinks a:hover { color: rgba(245,237,216,0.8); }
+
+.footerCopy { font-size: 0.78rem; opacity: 0.6; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page { padding: var(--space-4); }
+  .header { grid-template-columns: 1fr; }
+  .heroImage { height: 260px; }
+  .body { grid-template-columns: 1fr; }
+  .ingredients { position: static; }
+  .stats { gap: var(--space-3); }
+  .statDivider { display: none; }
+}
