@@ -12,7 +12,7 @@ export interface Database {
       recipes: {
         Row: Recipe
         Insert: Omit<Recipe, 'id' | 'created_at' | 'updated_at'>
-        Update: Partial<Omit<Recipe, 'id' | 'created_at' | 'updated_at'>>
+        Update: Record<string, unknown>
       }
       categories: {
         Row: Category
