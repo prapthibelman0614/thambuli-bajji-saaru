@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 import type { RecipeWithCategory } from '@/types/database'
 import styles from './page.module.css'
 
@@ -22,9 +26,15 @@ export default function AdminPage() {
   useEffect(() => { loadRecipes() }, [])
 
   async function toggleFlag(id: string, flag: 'is_published' | 'is_featured' | 'is_new', current: boolean) {
-    await supabase.from('recipes').update({ [flag]: !current } as any).eq('id', id)
-    loadRecipes()
+    if (flag === 'is_published') {
+    await supabase.from('recipes').update({ is_published: !current }).eq('id', id)
+    } else if (flag === 'is_featured') {
+    await supabase.from('recipes').update({ is_featured: !current }).eq('id', id)
+    } else {
+    await supabase.from('recipes').update({ is_new: !current }).eq('id', id)
   }
+  loadRecipes()
+}
 
   async function deleteRecipe(id: string, title: string) {
     if (!confirm(`Delete "${title}"? This cannot be undone.`)) return

@@ -9,10 +9,11 @@ export const metadata = { title: 'Edit Recipe — Admin' }
 
 export default async function EditRecipePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const [{ data: recipe }, categories] = await Promise.all([
-    supabase.from('recipes').select('*').eq('id', id).single(),
-    getCategories(),
-  ])
+  const [recipeResult, categories] = await Promise.all([
+  supabase.from('recipes').select('*').eq('id', id).single(),
+  getCategories(),
+])
+const recipe = recipeResult.data as any
 
   if (!recipe) notFound()
 
