@@ -106,10 +106,8 @@
 }
 
 .heroLogo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(245,237,216,0.25);
+  width: 320px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
