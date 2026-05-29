@@ -17,8 +17,10 @@
   font-weight: 600;
   color: var(--color-primary-dark);
   letter-spacing: 0.01em;
+  flex-shrink: 0;
 }
 
+/* ── Desktop links ───────────────────────────────────────── */
 .links {
   list-style: none;
   display: flex;
@@ -33,9 +35,7 @@
   transition: color 0.15s;
 }
 
-.links a:hover {
-  color: var(--color-primary);
-}
+.links a:hover { color: var(--color-primary); }
 
 .signin {
   border: 1.5px solid var(--color-primary) !important;
@@ -49,4 +49,87 @@
 .signin:hover {
   background: var(--color-primary) !important;
   color: #F5EDD8 !important;
+}
+
+/* ── Burger button ───────────────────────────────────────── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-primary-dark);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+.barOpen1 { transform: translateY(7px) rotate(45deg); }
+.barOpen2 { opacity: 0; transform: scaleX(0); }
+.barOpen3 { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile dropdown ─────────────────────────────────────── */
+.mobileMenu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border-bottom: 0.5px solid var(--color-border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobileLinks {
+  list-style: none;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileLinks li {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.mobileLinks li:last-child { border-bottom: none; }
+
+.mobileLinks a {
+  display: block;
+  padding: var(--space-4) 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+.mobileLinks a:hover { color: var(--color-primary); }
+
+.mobileAdmin {
+  color: var(--color-primary) !important;
+  font-style: italic;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav { padding: 0 var(--space-4); }
+  .links { display: none; }
+  .burger { display: flex; }
 }
