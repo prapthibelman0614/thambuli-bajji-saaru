@@ -43,15 +43,10 @@ export default async function HomePage() {
               <img
                 src="/Thambuli-Bajji-Saaru Logo.png"
                 alt="Thambuli, Saaru & Bajji logo"
-                width={140}
-                height={140}
+                width={280}
+                height={280}
                 style={{ objectFit: 'contain' }}
               />
-              </div>
-              <div className={styles.spiceTags}>
-                {['Thambuli', 'Saaru', 'Bajji', 'Karnataka', 'Heirloom'].map((t) => (
-                  <span key={t} className={styles.spiceTag}>{t}</span>
-                ))}
               </div>
             </div>
           </div>
