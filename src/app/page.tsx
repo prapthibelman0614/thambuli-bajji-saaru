@@ -3,6 +3,7 @@ import Nav from '@/components/ui/Nav'
 import RecipeCard from '@/components/recipe/RecipeCard'
 import { getFeaturedRecipes, getNewRecipes, getCategories } from '@/lib/queries'
 import styles from './page.module.css'
+import NewsletterForm from '@/components/ui/NewsletterForm'
 
 export const revalidate = 60 // revalidate every 60 seconds
 
@@ -132,6 +133,15 @@ export default async function HomePage() {
               Read her full story →
             </Link>
           </div>
+        </section>
+
+        {/* Newsletter */}
+        <section className={styles.newsletter}>
+          <h2 className={styles.newsletterTitle}>More recipes, every week</h2>
+          <p className={styles.newsletterSub}>
+            New dishes are added as Amma cooks them. Sign up to hear when something new lands.
+          </p>
+          <NewsletterForm />
         </section>
 
       </main>

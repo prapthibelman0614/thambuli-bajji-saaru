@@ -10,7 +10,6 @@ export default function Nav() {
       <ul className={styles.links}>
         <li><Link href="/recipes">Recipes</Link></li>
         <li><Link href="/categories">Categories</Link></li>
-        <li><Link href="/new">New</Link></li>
         <li><Link href="/about">About</Link></li>
         <li>
           <Link href="/login" className={styles.signin}>
