@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase-client'
-const supabase = createClient()
 import type { RecipeWithCategory } from '@/types/database'
 import styles from './page.module.css'
 
 export default function AdminPage() {
+  const supabase = createClient()
   const [recipes, setRecipes] = useState<RecipeWithCategory[]>([])
   const [loading, setLoading] = useState(true)
 
