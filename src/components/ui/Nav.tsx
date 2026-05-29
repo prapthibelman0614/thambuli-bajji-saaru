@@ -18,9 +18,6 @@ export default function Nav() {
         <li><Link href="/recipes">Recipes</Link></li>
         <li><Link href="/categories">Categories</Link></li>
         <li><Link href="/about">About</Link></li>
-        <li>
-          <Link href="/admin" className={styles.signin}>Admin</Link>
-        </li>
       </ul>
 
       {/* Burger button — mobile only */}
@@ -42,7 +39,6 @@ export default function Nav() {
             <li><Link href="/recipes" onClick={() => setOpen(false)}>Recipes</Link></li>
             <li><Link href="/categories" onClick={() => setOpen(false)}>Categories</Link></li>
             <li><Link href="/about" onClick={() => setOpen(false)}>About</Link></li>
-            <li><Link href="/admin" onClick={() => setOpen(false)} className={styles.mobileAdmin}>Admin</Link></li>
           </ul>
         </div>
       )}

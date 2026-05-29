@@ -1,58 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import styles from './layout.module.css'
-
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD ?? 'thambuli2024'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/lib/supabase-client'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [authed, setAuthed] = useState(false)
-  const [pw, setPw] = useState('')
-  const [error, setError] = useState(false)
+  const router = useRouter()
   const [checking, setChecking] = useState(true)
 
   useEffect(() => {
-    const stored = sessionStorage.getItem('admin_auth')
-    if (stored === 'true') setAuthed(true)
-    setChecking(false)
-  }, [])
+    const supabase = createClient()
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (pw === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_auth', 'true')
-      setAuthed(true)
-      setError(false)
-    } else {
-      setError(true)
-    }
-  }
+    // Check if user is logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        router.replace('/login')
+      } else {
+        setChecking(false)
+      }
+    })
+
+    // Listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (!session) router.replace('/login')
+    })
+
+    return () => subscription.unsubscribe()
+  }, [router])
 
   if (checking) return null
-
-  if (!authed) {
-    return (
-      <div className={styles.loginPage}>
-        <div className={styles.loginBox}>
-          <p className={styles.loginEyebrow}>Admin</p>
-          <h1 className={styles.loginTitle}>Thambuli, Saaru &amp; Bajji</h1>
-          <p className={styles.loginSub}>Enter the admin password to continue.</p>
-          <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <input
-              type="password"
-              value={pw}
-              onChange={(e) => setPw(e.target.value)}
-              placeholder="Password"
-              className={styles.loginInput}
-              autoFocus
-            />
-            {error && <p className={styles.loginError}>Incorrect password</p>}
-            <button type="submit" className={styles.loginBtn}>Sign in</button>
-          </form>
-        </div>
-      </div>
-    )
-  }
 
   return <>{children}</>
 }
