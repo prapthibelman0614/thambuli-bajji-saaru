@@ -40,7 +40,13 @@ export default async function HomePage() {
             <div className={styles.heroPattern} aria-hidden="true" />
             <div className={styles.heroLogoArea}>
               <div className={styles.heroLogo}>
-                <span>Logo</span>
+              <img
+                src="/Thambuli-Bajji-Saaru Logo.png"
+                alt="Thambuli, Saaru & Bajji logo"
+                width={140}
+                height={140}
+                style={{ objectFit: 'contain' }}
+              />
               </div>
               <div className={styles.spiceTags}>
                 {['Thambuli', 'Saaru', 'Bajji', 'Karnataka', 'Heirloom'].map((t) => (
