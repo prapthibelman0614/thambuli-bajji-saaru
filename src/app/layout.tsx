@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
+import TranslateButton from '@/components/ui/TranslateButton'
 
 export const metadata: Metadata = {
   title: 'Thambuli, Saaru & Bajji',
@@ -19,38 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}
-        {/* Hide the Google widget visually but keep it functional */}
+      <body>
+        {children}
         <div id="google_translate_element" style={{ display: 'none' }} />
-
-        {/* Our custom translate button */}
-        <button
-          onClick={() => {
-            const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
-            if (select) {
-              select.value = select.value === 'kn' ? 'en' : 'kn'
-              select.dispatchEvent(new Event('change'))
-            }
-          }}
-          style={{
-            position: 'fixed',
-            bottom: '24px',
-            right: '24px',
-            zIndex: 1000,
-            background: '#F5EDD8',
-            border: '1px solid rgba(196,96,26,0.4)',
-            borderRadius: '9999px',
-            padding: '10px 18px',
-            fontFamily: 'Georgia, serif',
-            fontSize: '0.88rem',
-            color: '#8B3A20',
-            cursor: 'pointer',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.12)',
-          }}
-        >
-          ಕನ್ನಡ / EN
-        </button>
-
+        <TranslateButton />
         <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         <Script id="google-translate-init" strategy="afterInteractive">{`
           function googleTranslateElementInit() {
