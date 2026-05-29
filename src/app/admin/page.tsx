@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { createClient } from '@/lib/supabase-client'
+import { createClient } from '@supabase/supabase-js'
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 import type { RecipeWithCategory } from '@/types/database'
 import styles from './page.module.css'
 
 export default function AdminPage() {
-  const supabase = createClient()
   const [recipes, setRecipes] = useState<RecipeWithCategory[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -39,9 +42,9 @@ export default function AdminPage() {
     loadRecipes()
   }
 
-  async function signOut() {
-    await supabase.auth.signOut()
-    window.location.href = '/login'
+  function signOut() {
+    sessionStorage.removeItem('admin_auth')
+    window.location.reload()
   }
 
   return (
