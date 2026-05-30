@@ -117,10 +117,10 @@ export default function RecipeForm({ categories, initial, mode }: Props) {
 
     let err
     if (mode === 'create') {
-      const res = await supabase.from('recipes').insert(payload)
+      const res = await (supabase.from('recipes') as any).insert(payload)
       err = res.error
     } else {
-      const res = await supabase.from('recipes').update(payload).eq('id', initial!.id!)
+      const res = await (supabase.from('recipes') as any).update(payload).eq('id', initial!.id!)
       err = res.error
     }
 
