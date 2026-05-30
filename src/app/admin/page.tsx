@@ -22,13 +22,7 @@ export default function AdminPage() {
   useEffect(() => { loadRecipes() }, [])
 
   async function toggleFlag(id: string, flag: 'is_published' | 'is_featured' | 'is_new', current: boolean) {
-    if (flag === 'is_published') {
-    await supabase.from('recipes').update({ is_published: !current } as any).eq('id', id)
-    } else if (flag === 'is_featured') {
-    await supabase.from('recipes').update({ is_featured: !current } as any).eq('id', id)
-    } else {
-    await supabase.from('recipes').update({ is_new: !current } as any).eq('id', id)
-  }
+  await (supabase.from('recipes') as any).update({ [flag]: !current }).eq('id', id)
   loadRecipes()
 }
 
